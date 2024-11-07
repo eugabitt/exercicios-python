@@ -16,6 +16,8 @@ from kivy.uix.button import Button
 
 from kivy.base import runTouchApp
 
+from pprint import pprint 
+
 
 
 KV = '''
@@ -43,14 +45,14 @@ KV = '''
         MDRaisedButton:
 
             text: "1"
-            md_bg_color: "#f3652"
-            
+            md_bg_color: "#edfff3"
+                        
             on_press: app.on_number_press(1)
 
         MDRaisedButton:
 
             text: "2"
-            md_bg_color: "#f3652"
+            md_bg_color: "#dcffe7"
 
 
             on_press: app.on_number_press(2)
@@ -58,97 +60,99 @@ KV = '''
         MDRaisedButton:
 
             text: "3"
-            md_bg_color: "#f3652"
+            md_bg_color: "#caffdb"
 
             on_press: app.on_number_press(3)
 
         MDRaisedButton:
 
             text: "+"
-            md_bg_color: "#f3652"
+            md_bg_color: "#b9ffcf"
 
             on_press: app.on_operator_press("+")
 
         MDRaisedButton:
 
             text: "4"
-            md_bg_color: "#f3652"
+            md_bg_color: "#ffebe8"
 
             on_press: app.on_number_press(4)
 
         MDRaisedButton:
 
             text: "5"
-            md_bg_color: "#f3652"
+            md_bg_color: "#ffd7d0"
 
             on_press: app.on_number_press(5)
 
         MDRaisedButton:
 
             text: "6"
-            md_bg_color: "#f3652"
+            md_bg_color: "#ffc3b9"
 
             on_press: app.on_number_press(6)
 
         MDRaisedButton:
 
             text: "-"
-            md_bg_color: "#f3652"
+            md_bg_color: "#ffafa2"
 
             on_press: app.on_operator_press("-")
 
         MDRaisedButton:
 
             text: "7"
-            md_bg_color: "#f3652"
+            md_bg_color: "#feffd5"
 
             on_press: app.on_number_press(7)
 
         MDRaisedButton:
 
             text: "8"
-            md_bg_color: "#f3652"
+            id: btn
+            md_bg_color: "#fdffb3"
+
             on_press: app.on_number_press(8)
 
         MDRaisedButton:
 
             text: "9"
-            md_bg_color: "#f3652"
+            md_bg_color: "#fcff90"
 
             on_press: app.on_number_press(9)
 
         MDRaisedButton:
 
             text: "*"
-            md_bg_color: "#f3652"
+            md_bg_color: "#fbff6e"
 
             on_press: app.on_operator_press("*")
 
         MDRaisedButton:
 
             text: "C"
-            md_bg_color: "#f3652"
+            md_bg_color: "#dfdff4"
 
             on_press: app.clear_input()
 
         MDRaisedButton:
 
             text: "0"
-            md_bg_color: "#f3652"
+            md_bg_color: "#d1d1ea"
 
             on_press: app.on_number_press(0)
 
         MDRaisedButton:
 
             text: "="
-            md_bg_color: "#f3652"
+            md_bg_color: "#c2c2df"
 
             on_press: app.calculate_result()
 
         MDRaisedButton:
 
             text: "/"
-            md_bg_color: "#f3652"
+            md_bg_color: "#b3b4d5"
     
 
             on_press: app.on_operator_press("/")
@@ -162,7 +166,8 @@ class CalculatorApp(BoxLayout):
         current_text = self.ids.input_field.text
         new_text = f"{current_text}{number}"
         self.ids.input_field.text = new_text
-
+        self.ids.btn.text_color = "black"
+        self.ids.btn.md_bg_color = "white"
     def on_operator_press(self, operator):
 
         current_text = self.ids.input_field.text
