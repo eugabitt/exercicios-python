@@ -1,3 +1,6 @@
+from kivy.config import Config 
+
+Config.set('graphics', 'resizable', False)
 
 from kivy.lang import Builder
 
@@ -19,7 +22,9 @@ from kivy.base import runTouchApp
 
 from pprint import pprint 
 
+from kivy.core.window import Window 
 
+Window.size = (290, 250)
 
 KV = '''
 
@@ -38,8 +43,6 @@ KV = '''
     GridLayout:
         cols: 4
         spacing: dp(10)
-        size_hint: .5,.5
-        pos_hint: {'center_x':.5,'center_y':.5}
     
         MDRaisedButton:
 
