@@ -7,10 +7,10 @@ def calcular_media(notas):
     media = total / len(notas)
     return media
 
-arredondar_media = lambda media: round(media, 2)
+arredondar_media = lambda media: round(media, 0)
 media = calcular_media([nota1, nota2, nota3])
 media_arredondada = arredondar_media(media)
 if media_arredondada >= 7:
-    print("Aprovada(o)")
+    print("Aprovada(o) com média", media_arredondada,".")
 else:
     print("Reprovada(o)")
