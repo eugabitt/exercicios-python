@@ -9,7 +9,6 @@ class livros:
          self.quantidade_disponivel = quantidade_disponivel
 # print retorno com dados add
     def __str__(self):
-        # Corrected to use quantidade_disponivel instead of self.ano_publicacao
         return (f'{self.titulo} por {self.autor}, Quantidade {self.quantidade_disponivel}') 
         pass
 
@@ -44,7 +43,7 @@ adicionar_livro("Mudando os ares", "G. Trevisani", "Mudanças", 7)
 def procurar_livros(titulo):
     validos = []
     for livro in biblioteca:
-        if livro.titulo == input(titulo):
+        if livro.titulo == (titulo):
             validos.append(livro)
     return validos
 
@@ -73,3 +72,13 @@ plt.title('Quantidade de livros na biblioteca por gênero')
 # Adicionando rótulos aos pontos de dados 
 for i, valor in enumerate(contagem_livros):
     plt.text(i, valor, str(valor), ha='center', va='bottom')
+
+# exemplo busca de livros
+livro_busca = procurar_livros("Mudando os ares")
+
+if livro_busca:
+    print("Livros encontrados:")
+    for livro in livro_busca:
+        print(livro)
+else:
+    print("Nenhum livro encontrado")
